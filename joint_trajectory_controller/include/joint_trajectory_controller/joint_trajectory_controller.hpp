@@ -169,7 +169,7 @@ protected:
   std::vector<double> tmp_command_;
 
   // Things around speed scaling
-  double scaling_factor_{1.0};
+  std::atomic<double> scaling_factor_{1.0};
   TimeData time_data_;
 
   // Timeout to consider commands old
@@ -315,6 +315,7 @@ private:
   bool set_scaling_factor(const double scaling_factor);
 
   realtime_tools::RealtimeBuffer<double> scaling_factor_rt_buff_;
+
   using SpeedScalingMsg = control_msgs::msg::SpeedScalingFactor;
   rclcpp::Subscription<SpeedScalingMsg>::SharedPtr scaling_factor_sub_;
 
