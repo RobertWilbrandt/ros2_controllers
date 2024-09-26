@@ -319,8 +319,6 @@ private:
 
   bool set_scaling_factor(const double scaling_factor);
 
-  urdf::Model model_;
-
   using SpeedScalingMsg = control_msgs::msg::SpeedScalingFactor;
   rclcpp::Subscription<SpeedScalingMsg>::SharedPtr scaling_factor_sub_;
 

@@ -159,7 +159,7 @@ controller_interface::return_type JointTrajectoryController::update(
     return controller_interface::return_type::OK;
   }
 
-  if (get_state().id() == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE)
+  if (get_lifecycle_state().id() == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE)
   {
     if (scaling_command_interface_.has_value())
     {
