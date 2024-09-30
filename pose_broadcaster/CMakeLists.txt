@@ -71,6 +71,15 @@ if(BUILD_TESTING)
     controller_manager
     ros2_control_test_assets
   )
+
+  add_rostest_with_parameters_gmock(test_pose_broadcaster
+    test/test_pose_broadcaster.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/pose_broadcaster_params.yaml
+  )
+  target_link_libraries(test_pose_broadcaster
+    pose_broadcaster
+  )
+
 endif()
 
 install(
